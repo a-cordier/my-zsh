@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function login_gke_nprd(){
   #gcloud container clusters --project sp-glob-gke-nprd-cdp --region europe-west1 get-credentials nprd-02-a9ef
   kubectx gke_sp-glob-gke-nprd-cdp_europe-west1_nprd-02-a9ef

@@ -23,11 +23,10 @@ source $HOME/.zsh/git_plugin.zsh
 source $HOME/.zsh/completion.zsh
 source $HOME/.zsh/utils.zsh
 source $HOME/.zsh/ssl_trust.zsh
+source $HOME/.zsh/emsdk.zsh
+source $HOME/.zsh/autojump.zsh
 
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-
-[ -d "$HOME/src/emsdk" ] && source $HOME/src/emsdk/emsdk_env.sh > /dev/null
-
+# temporary
 [ -d "$HOME/.zsh/lm" ] && source $HOME/.zsh/lm/lm.zsh
 
 PATH="$PATH:$HOME/bin"
