@@ -22,11 +22,9 @@ source $HOME/.zsh/aliases.zsh
 source $HOME/.zsh/git_plugin.zsh
 source $HOME/.zsh/completion.zsh
 source $HOME/.zsh/utils.zsh
-source $HOME/.zsh/ssl_trust.zsh
 source $HOME/.zsh/emsdk.zsh
 source $HOME/.zsh/autojump.zsh
 
-# temporary
 [ -d "$HOME/.zsh/lm" ] && source $HOME/.zsh/lm/lm.zsh
 
 PATH="$PATH:$HOME/bin"
@@ -36,10 +34,5 @@ if [ -f '/Users/acordier/exec -l /bin/zsh/google-cloud-sdk/path.zsh.inc' ]; then
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/acordier/exec -l /bin/zsh/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/acordier/exec -l /bin/zsh/google-cloud-sdk/completion.zsh.inc'; fi
-
-function nvm_configure() {
-  export NVM_DIR="/Users/acordier/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-}
 
 GOPATH=$(go env GOPATH)

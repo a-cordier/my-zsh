@@ -94,5 +94,3 @@ function importcert() {
   echo -n | openssl s_client -connect "$SSL_HOST:$SSL_PORT" | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > "/tmp/$SSL_HOST.cert" && \
   sudo security add-trusted-cert -d -r trustAsRoot -p ssl -k /Library/Keychains/System.keychain "/tmp/$SSL_HOST.cert"
 }
-
-source $HOME/.zsh/lm/.credentials.sh
