@@ -24,15 +24,20 @@ source $HOME/.zsh/completion.zsh
 source $HOME/.zsh/utils.zsh
 source $HOME/.zsh/emsdk.zsh
 source $HOME/.zsh/autojump.zsh
+source $HOME/.zsh/fnm.zsh
 
 [ -d "$HOME/.zsh/lm" ] && source $HOME/.zsh/lm/lm.zsh
 
-PATH="$PATH:$HOME/bin"
+GOPATH=$(go env GOPATH)
+
+PATH="$PATH:$HOME/bin:$GOPATH/bin"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/acordier/.sdkman"
+[[ -s "/Users/acordier/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/acordier/.sdkman/bin/sdkman-init.sh"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/acordier/exec -l /bin/zsh/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/acordier/exec -l /bin/zsh/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/acordier/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/acordier/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/acordier/exec -l /bin/zsh/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/acordier/exec -l /bin/zsh/google-cloud-sdk/completion.zsh.inc'; fi
-
-GOPATH=$(go env GOPATH)
+if [ -f '/Users/acordier/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/acordier/google-cloud-sdk/completion.zsh.inc'; fi

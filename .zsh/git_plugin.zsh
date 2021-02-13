@@ -101,6 +101,10 @@ alias gfg='git ls-files | grep'
 alias gg='git gui citool'
 alias gga='git gui citool --amend'
 
+function gex() {
+  echo "$1" >> "$(git rev-parse --git-dir)/info/exclude"
+}
+
 function ggf() {
   [[ "$#" != 1 ]] && local b="$(git_current_branch)"
   git push --force origin "${b:=$1}"

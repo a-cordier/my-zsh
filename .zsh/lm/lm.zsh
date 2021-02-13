@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function login_gke_nprd(){
-  #gcloud container clusters --project sp-glob-gke-nprd-cdp --region europe-west1 get-credentials nprd-02-a9ef
+  gcloud container clusters --project sp-glob-gke-nprd-cdp --region europe-west1 get-credentials nprd-02-a9ef
   kubectx gke_sp-glob-gke-nprd-cdp_europe-west1_nprd-02-a9ef
   kubens cdp-devportal-gke-euw1-prep
 }
@@ -9,9 +9,15 @@ function login_gke_nprd(){
 function login_gke_prod(){
   export PATH="/usr/local/opt/python@3.8/bin:$PATH"
   export CLOUDSDK_PYTHON=python3.8
-  #gcloud container clusters --project sp-glob-gke-prod-cdp --region europe-west1 get-credentials prod-04-ce7a
+  gcloud container clusters --project sp-glob-gke-prod-cdp --region europe-west1 get-credentials prod-04-ce7a
   kubectx gke_sp-glob-gke-prod-cdp_europe-west1_prod-04-ce7a
   kubens cdp-devportal-gke-euw1-prod
+}
+
+function login_gke_poc() {
+  gcloud container clusters --project sp-glob-gke-nprd-cdp --region europe-west1 get-credentials nprd-01-ppjq
+  kubectx gke_sp-glob-gke-nprd-cdp_europe-west1_nprd-01-ppjq
+  kubens cdp-devportal-gateway-poc-dev
 }
 
 function k9s_nprd(){
