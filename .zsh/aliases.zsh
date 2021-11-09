@@ -17,3 +17,5 @@ alias weather='curl v2.wttr.in'
 alias cd="pushd"
 alias cat="bat"
 
+alias tf="terraform"
+

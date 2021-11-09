@@ -25,12 +25,14 @@ source $HOME/.zsh/utils.zsh
 source $HOME/.zsh/emsdk.zsh
 source $HOME/.zsh/autojump.zsh
 source $HOME/.zsh/fnm.zsh
+source $HOME/.zsh/kube.zsh
 
 [ -d "$HOME/.zsh/lm" ] && source $HOME/.zsh/lm/lm.zsh
 
 GOPATH=$(go env GOPATH)
 
 PATH="$PATH:$HOME/bin:$GOPATH/bin"
+PATH="$PATH:$HOME/.local/bin"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/acordier/.sdkman"
@@ -41,3 +43,4 @@ if [ -f '/Users/acordier/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/acordi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/acordier/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/acordier/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/usr/local/opt/libpq/bin:$PATH"
