@@ -33,6 +33,7 @@ GOPATH=$(go env GOPATH)
 
 PATH="$PATH:$HOME/bin:$GOPATH/bin"
 PATH="$PATH:$HOME/.local/bin"
+PATH="$PATH:/usr/local/bin"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/acordier/.sdkman"
@@ -44,3 +45,8 @@ if [ -f '/Users/acordier/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/acordi
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/acordier/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/acordier/google-cloud-sdk/completion.zsh.inc'; fi
 export PATH="/usr/local/opt/libpq/bin:$PATH"
+
+DL=$HOME/Downloads
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
+
