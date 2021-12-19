@@ -1,1 +1,3 @@
-[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+[[ -s /Users/acordier/.autojump/etc/profile.d/autojump.sh ]] && source /Users/acordier/.autojump/etc/profile.d/autojump.sh
+
+autoload -U compinit && compinit -u
