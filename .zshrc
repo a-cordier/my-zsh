@@ -26,6 +26,7 @@ source $HOME/.zsh/emsdk.zsh
 source $HOME/.zsh/autojump.zsh
 source $HOME/.zsh/fnm.zsh
 source $HOME/.zsh/kube.zsh
+source $HOME/.zsh/gvt.zsh
 
 [ -d "$HOME/.zsh/lm" ] && source $HOME/.zsh/lm/lm.zsh
 
