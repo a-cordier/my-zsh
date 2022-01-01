@@ -41,8 +41,8 @@ gvt-apim-switch() {
         find "${API_PLUGINS}" -name "gravitee-apim-repository-mongodb-*-SNAPSHOT.zip" -delete
         find "${GTW_PLUGINS}" -name "gravitee-apim-repository-mongodb-*-SNAPSHOT.zip" -delete
 
-        \cp "${MONGO_PLUGIN}" "${API_PLUGINS}"
-        \cp "${MONGO_PLUGIN}" "${GTW_PLUGINS}"
+        cp "${MONGO_PLUGIN}" "${API_PLUGINS}"
+        cp "${MONGO_PLUGIN}" "${GTW_PLUGINS}"
     popd
 
     pushd "${APIM_DIR}"
