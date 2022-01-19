@@ -2,6 +2,12 @@
 # Some utilities to work with the Gravitee.io Open Source Project.
 ##
 
+APIM_DIR="${APIM_DIR:-$HOME/src/gravitee/gravitee-api-management}"
+GTW_DIR="${APIM_DIR}/gravitee-apim-gateway"
+API_DIR="${APIM_DIR}/gravitee-apim-rest-api"
+API_PLUGINS="${API_DIR}/gravitee-apim-rest-api-standalone/gravitee-apim-rest-api-standalone-distribution/target/distribution/plugins"
+GTW_PLUGINS="${GTW_DIR}/gravitee-apim-gateway-standalone/gravitee-apim-gateway-standalone-distribution/target/distribution/plugins"
+
 assert_directory_is_clean() {
     if [ -z "$(git status --porcelain)" ]; then
         echo "Working Directory is clean, proceeding"
@@ -17,6 +23,7 @@ switch_branch() {
     pushd "${APIM_DIR}"
         assert_directory_is_clean
         git checkout "${VERSION}"
+        git pull
     popd
 }
 
@@ -32,6 +39,18 @@ install_gateway() {
     popd
 }
 
+install_console_ui() {
+    pushd "${APIM_DIR}/gravitee-apim-console-webui"
+        fnm use && npm ci
+    popd
+}
+
+install_portal_ui() {
+    pushd "${APIM_DIR}/gravitee-apim-portal-webui"
+        fnm use && npm ci
+    popd
+}
+
 clean() {
     pushd "${APIM_DIR}"
         git checkout .
@@ -43,9 +62,6 @@ package_repository() {
         mvn clean package -DskipTests
         
         MONGO_PLUGIN=$(find gravitee-apim-repository-mongodb/target -name "gravitee-apim-repository-mongodb-*-SNAPSHOT.zip")
-        
-        API_PLUGINS="${APIM_DIR}/gravitee-apim-rest-api/gravitee-apim-rest-api-standalone/gravitee-apim-rest-api-standalone-distribution/target/distribution/plugins"
-        GTW_PLUGINS="${APIM_DIR}/gravitee-apim-gateway/gravitee-apim-gateway-standalone/gravitee-apim-gateway-standalone-distribution/target/distribution/plugins"
 
         find "${API_PLUGINS}" -name "gravitee-apim-repository-mongodb-*-SNAPSHOT.zip" -delete
         find "${GTW_PLUGINS}" -name "gravitee-apim-repository-mongodb-*-SNAPSHOT.zip" -delete
@@ -56,12 +72,13 @@ package_repository() {
 }
 
 gvt-apim-switch() {
-    APIM_DIR="${APIM_DIR:-$HOME/src/gravitee/gravitee-api-management}"
     VERSION="$1"
 
-    install_rest_api & install_gateway
-
+    switch_branch
+    install_rest_api
+    install_gateway
+    install_console_ui
+    install_portal_ui
     package_repository
-
     clean
 }

@@ -40,7 +40,7 @@ PATH="$PATH:/usr/local/bin"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
-[[ -s ".creds.zsh" ]] && source ".creds.zsh"
+[[ -s "$HOME/.zsh/.creds.zsh" ]] && source "$HOME/.zsh/.creds.zsh"
 
 DL=$HOME/Downloads
 
