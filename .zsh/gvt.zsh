@@ -59,7 +59,7 @@ clean() {
 
 package_repository() {
     pushd "${APIM_DIR}/gravitee-apim-repository"
-        mvn clean package -DskipTests
+        mvn clean install -DskipTests
         
         MONGO_PLUGIN=$(find gravitee-apim-repository-mongodb/target -name "gravitee-apim-repository-mongodb-*-SNAPSHOT.zip")
 
