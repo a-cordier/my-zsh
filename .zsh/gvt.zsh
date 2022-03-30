@@ -82,3 +82,21 @@ gvt-apim-switch() {
     package_repository
     clean
 }
+
+gvt_ci_compile() {
+    pushd "${APIM_DIR}"
+        mvn -pl '!gravitee-apim-console-webui, !gravitee-apim-portal-webui' clean install -Dskip.validation=true -DskipTests -T 2C
+    popd
+}
+
+gvt_ci_install() {
+    pushd "${APIM_DIR}"
+        mvn -pl '!gravitee-apim-console-webui, !gravitee-apim-portal-webui' clean install -Dskip.validation=true -T 2C
+    popd
+}
+
+gvt_ci_all() {
+    pushd "${APIM_DIR}"
+        mvn -pl '!gravitee-apim-console-webui, !gravitee-apim-portal-webui' clean install -T 2C
+    popd
+}

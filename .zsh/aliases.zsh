@@ -19,3 +19,5 @@ alias cat="bat"
 
 alias tf="terraform"
 
+alias python="python3"
+

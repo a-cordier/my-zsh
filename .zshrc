@@ -23,7 +23,6 @@ source $HOME/.zsh/git.zsh
 source $HOME/.zsh/completion.zsh
 source $HOME/.zsh/utils.zsh
 source $HOME/.zsh/emsdk.zsh
-source $HOME/.zsh/autojump.zsh
 source $HOME/.zsh/fnm.zsh
 source $HOME/.zsh/kube.zsh
 source $HOME/.zsh/gvt.zsh
@@ -35,6 +34,9 @@ GOPATH=$(go env GOPATH)
 PATH="$PATH:$HOME/bin:$GOPATH/bin"
 PATH="$PATH:$HOME/.local/bin"
 PATH="$PATH:/usr/local/bin"
+
+PATH="$PATH:$HOME/.gem/ruby/3.0.0/bin"
+eval "$(rbenv init - zsh)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
