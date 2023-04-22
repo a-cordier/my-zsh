@@ -71,7 +71,6 @@ alias gcf='git config --list'
 alias gcl='git clone --recurse-submodules'
 alias gclean='git clean -id'
 alias gpristine='git reset --hard && git clean -dfx'
-alias gcm='git checkout master'
 alias gcd='git checkout develop'
 alias gcmsg='git commit -m'
 alias gco='git checkout'
@@ -80,6 +79,10 @@ alias gcp='git cherry-pick'
 alias gcpa='git cherry-pick --abort'
 alias gcpc='git cherry-pick --continue'
 alias gcs='git commit -S'
+
+function gcm() {
+  git checkout master 2>/dev/null || git checkout main
+}
 
 alias gd='git diff'
 alias gdca='git diff --cached'
