@@ -7,5 +7,6 @@ alias kgs="kubectl get services"
 alias kn="kubens"
 alias kx="kubectx"
 alias kedit="kubectl edit"
+alias krs="kubectl rollout restart deployment"
 
 source <(kubectl completion zsh)
