@@ -33,6 +33,7 @@ GOPATH=$(go env GOPATH)
 
 PATH="$PATH:$HOME/bin:$GOPATH/bin"
 PATH="$PATH:$HOME/.local/bin"
+PATH="$PATH:/opt/homebrew/bin"
 PATH="$PATH:/usr/local/bin"
 
 PATH="$PATH:$HOME/.gem/ruby/3.0.0/bin"
@@ -47,4 +48,8 @@ export SDKMAN_DIR="$HOME/.sdkman"
 DL=$HOME/Downloads
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
-
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/acordier/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
