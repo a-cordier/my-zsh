@@ -16,7 +16,7 @@ zmodload -i zsh/complist
 
 source $HOME/.zsh/history.zsh
 source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOME/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source $HOME/.zsh/fast-syntax-highlighting/F-Sy-H.plugin.zsh
 source $HOME/.zsh/key-bindings.zsh
 source $HOME/.zsh/aliases.zsh
 source $HOME/.zsh/git.zsh

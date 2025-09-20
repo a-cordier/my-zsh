@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function installStarship() {
-    curl -fsSL https://starship.rs/install.sh | bash
+    curl -fsSL https://starship.rs/install.sh | sh
 }
 
 function cloneModules() {
