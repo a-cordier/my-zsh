@@ -9,6 +9,8 @@ alias kx="kubectx"
 alias kedit="kubectl edit"
 alias krsd="kubectl rollout restart deployment"
 
-export dry="-o yaml -dry-run=client"
-
 source <(kubectl completion zsh)
+
+setopt SH_WORD_SPLIT
+
+export dry="--dry-run=client --output=yaml"
